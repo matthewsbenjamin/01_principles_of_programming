@@ -15,16 +15,6 @@ int hexToDec(char hex[]){
   return 22;
 }
 
-void printTrunk( int width, int trunkLength) {
-    width = (width - 3) / 2;
-    for (int i = 0; i < trunkLength; i++) {
-        for (int i = 0; i < width; i++) {
-            printf(" ");
-        }
-        printf("***\n");
-    }
-}
-
 /* Question 2
  Complete the function below that print out a tree shape such as the following: 
 
@@ -45,8 +35,40 @@ void printTrunk( int width, int trunkLength) {
   Call this function from the main to test your program.
 */
 
+
+void printTrunk( int width, int trunkLength) {
+    width = (width - 2) / 2;
+    for (int i = 0; i < trunkLength; i++) {
+        for (int i = 0; i < width; i++) {
+            printf(" ");
+        }
+        printf("***\n");
+    }
+}
+
+void printLeaves(int width, int length) {
+  int asterisks = 1;
+  int whitespace = width / 2;
+
+  while (whitespace >= 0) {
+    // print the whitespace
+    for (int i = whitespace; i > 0; i--) {
+      printf(" ");
+    }
+
+    // print the asterisks
+    for (int i = 0; i < asterisks; i++) {
+      printf("*");
+    }
+    asterisks += 2;
+    whitespace --;
+    printf("\n");
+  }
+}
+
 void printTree(int width, int trunkLength){
   
+  printLeaves(width, trunkLength);
   printTrunk(width, trunkLength);
 }
 
@@ -55,6 +77,6 @@ int main(void) {
   printf("The hex value %s is %d in decimal\n", hex, hexToDec(hex));
 
 
-  printTree(9, 6);
+  printTree(7, 4);
   return 0;
 }
