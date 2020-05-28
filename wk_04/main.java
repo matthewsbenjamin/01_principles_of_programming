@@ -14,21 +14,23 @@ public class Main {
 		Counter hours = new Counter(24, 1);
 		Counter mins = new Counter(60, 59);
 		Counter sec = new Counter(60, 58);
+		Counter msec = new Counter(1000, 997);
 
 		int i = 0;
 		while(i < 10){
-      System.out.println(hours.getCount() + " : " + 
-                          mins.getCount() + " : " + 
-                          sec.getCount());
-			
-      sec.tick();
-			if(sec.getCount() == 0){
-				mins.tick();
-        if(mins.getCount() == 0){
-				  hours.tick();
-			  }
-			}
 
+			System.out.printf( "%02d:%02d:%02d:%03d\n", hours.getCount(), mins.getCount(), sec.getCount(), msec.getCount());
+			msec.tick();
+			
+			if(msec.getCount() == 0) {
+				sec.tick();
+				if(sec.getCount() == 0){
+					mins.tick();
+					if(mins.getCount() == 0){
+						hours.tick();
+					}
+				}
+			}
 			i++;
 		}
   }
