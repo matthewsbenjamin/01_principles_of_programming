@@ -23,7 +23,7 @@ public class Main {
 
         a.TransferTo(b, 10);
         b.TransferTo(treasury, 10);
-        b.TransferTo(b, 10);
+        b.TransferTo(a, 10);
 
         System.out.println("Final Balances:");
         System.out.printf("\t%s: £%f\n", treasury.AccName(), treasury.Balance());
