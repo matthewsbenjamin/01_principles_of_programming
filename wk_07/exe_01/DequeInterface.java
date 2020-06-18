@@ -4,7 +4,7 @@
  *
  */ 
 
-public interface DequeueInterface{
+public interface DequeInterface{
 
     //adds item o to the front of the deque
     public void addFront(Object o);
